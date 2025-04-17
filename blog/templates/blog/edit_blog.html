@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Editar Blog{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Editar Blog</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="mb-3">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          <div class="text-danger">{{ field.errors }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-success">Guardar Cambios</button>
+    <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

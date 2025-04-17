@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Blog del Vino - Entradas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Últimas Entradas 🍇</h2>
+
+  {% if blogs %}
+    <div class="row">
+      {% for blog in blogs %}
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 shadow-sm">
+            {% if blog.image %}
+              <img src="{{ blog.image.url }}" class="card-img-top" alt="Imagen de {{ blog.title }}">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ blog.title }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ blog.subtitle }}</h6>
+              <p class="card-text text-muted small">
+                Publicado el {{ blog.created_at|date:"d M Y" }} por {{ blog.author }}
+              </p>
+              <a href="{% url 'blog_detail' blog.pk %}" class="btn btn-outline-primary mt-2">Leer más</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No hay entradas todavía.</p>
+  {% endif %}
+</div>
+{% endblock %}

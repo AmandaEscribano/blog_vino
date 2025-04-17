@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Bienvenida - Blog del Vino{% endblock %}
+
+{% block content %}
+<style>
+/* HERO */
+.hero {
+    background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    position: relative;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+<!-- HERO DE BIENVENIDA -->
+<div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content text-center">
+        <h1 class="display-4">Donde el vino cuenta su historia 🍷</h1>
+        <p class="lead mt-3">Un espacio para saborear letras, compartir pasiones y descubrir aromas en cada palabra.</p>
+        <div class="mt-4">
+            <a href="{% url 'blog_list' %}" class="btn btn-outline-light btn-lg me-2">Explorar el Blog</a>
+            <a href="{% url 'about' %}" class="btn btn-light btn-lg">Sobre mí</a>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDER DE CEPAS -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Descubrí nuestras cepas preferidas</h2>
+
+  <div id="cepasCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1611486214610-54c9d226a874?auto=format&fit=crop&w=1500&q=80" class="d-block w-100" alt="Malbec">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Malbec</h5>
+          <p>El alma de los viñedos argentinos.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1578926288258-3e49bba2bcbc?auto=format&fit=crop&w=1500&q=80" class="d-block w-100" alt="Cabernet">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Cabernet Sauvignon</h5>
+          <p>Intensidad y estructura en cada sorbo.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1530907683944-efcc8e0b2a4f?auto=format&fit=crop&w=1500&q=80" class="d-block w-100" alt="Syrah">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Syrah</h5>
+          <p>Oscura, potente y llena de carácter.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1609710119257-009a8be5b441?auto=format&fit=crop&w=1500&q=80" class="d-block w-100" alt="Chardonnay">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Chardonnay</h5>
+          <p>Frescura, suavidad y elegancia.</p>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1618834472219-d06c50a3c04e?auto=format&fit=crop&w=1500&q=80" class="d-block w-100" alt="Torrontés">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Torrontés</h5>
+          <p>La flor argentina embotellada.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#cepasCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#cepasCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h2>Sesión cerrada</h2>
+  <p>¡Gracias por visitar el Blog del Vino!</p>
+  <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión de nuevo</a>
+</div>
+{% endblock %}
